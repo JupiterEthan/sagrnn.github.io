@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"> 
+        
+        <meta name="description" content="SAGRNN Demos">
+        <meta name="author" content="Ke Tan">
+        
+	    <title>SAGRNN: Self-Attention Based Gated RNNs for Binaural Speaker Separation with Interaural Cue Preservation</title>
+        
+        <!-- Bootflat CSS -->
+        <link rel="stylesheet" href="css/bootflat.css">
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/index.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    </head>
+
+    
+    <body>
+        <div id="top" style="position: relative; top: -100px;"></div>
+        <header id="header_navbar">
+		    <nav class="navbar navbar-default navbar-fixed-top fadeIn" role="navigation">
+                <div>            
+                    <div class="navbar-header">
+					    <button type="button" class="navbar-toggle collapsed" id="button_navbar" data-toggle="collapse" data-target="#dropdown-box-1">
+						    <span class="sr-only">Toggle navigation</span>
+						    <span class="icon-bar"></span>
+						    <span class="icon-bar"></span>
+						    <span class="icon-bar"></span>
+					    </button>
+				    </div>
+
+    		        <div class="collapse navbar-collapse navbar-right" id="dropdown-box-1">
+	    			    <ul class="nav navbar-nav">
+		    			    <li><a href="#intro_target">Intro</a></li>
+			    			<li><a href="#samples_target">Samples</a></li>
+				    		<li><a href="#reference_target">References</a></li>
+							<li><a href="#reference_target">Data Licenses</a></li>
+				    	</ul>
+			        </div>
+                </div>	
+		    </nav>
+	    </header>
+		
+		<div id="paper_info">
+			<div id="paper_title">
+    	        <h1>SAGRNN: Self-Attention Based Gated RNNs for Binaural Speaker Separation with Interaural Cue Preservation</h1>
+				<h4>Ke Tan<sup>1</sup>, Buye Xu<sup>2</sup>, Anurag Kumar<sup>2</sup>, Eliya Nachmani<sup>3, 4</sup>, Yossi Adi<sup>3</sup></h4>
+				<h5><sup>1</sup>The Ohio State University, <sup>2</sup>Facebook Reality Labs, <sup>3</sup>Facebook AI Research, <sup>4</sup>Tel-Aviv University</h5>
+			</div>
+		</div>
+
+        <div id="container">
+			
+            <div id="intro_target" style="position: relative; top: -50px;"></div>
+	        <div id="intro">
+				<h1><a name="intro">Intro</a></h1>
+				<p>In this post, we present a deep model named <i>SAGRNN</i> for binaural speaker separation with interaural cue preservation.</p>
+				<p>In this study, the goal of binaural speaker separation is to estimate <math><i>C</i></math> concurrent binaural speech signals 
+				   <math><b>s</b><sub><i>1</i></sub>, ..., <b>s</b><sub><i>C</i></sub></math> from a sound mixture <math><b>y</b></math>. 
+				   We assume that there is no room reverberation in the acoustic environment.
+				</p>			
+	
+            </div>
+    
+            <div id="clear"></div>
+            
+            
+            
+    
+        </div>
+        
+
+        <div id="footer"><i>Designed by <span style="color:#FFF">Ke Tan</span> on <span style="color:#FFF">05/11/2015</span>. Last updated on <span style="color:#FFF">05/18/2020</span>.</i></div>
+
+        <div class="wow fadeIn" data-wow-delay="0.4s">
+	        <div class="btn-circle-scroll">
+			    <a href="#top" class="btn-circle">
+				    <i class="fa fa-angle-double-up"></i>
+				</a>
+			</div>
+		</div>
+        
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    	<script src="js/jquery.easing.min.js"></script>	
+	    <script src="js/jquery.scrollTo.js"></script>
+        <script src="js/wow.min.js"></script>
+        
+        <script type="text/javascript">
+            $(function(){
+                $("ul li a").click(function(){
+                    var hr = $(this).attr("href");
+                    var anh = $(hr).offset().top;
+                    $("html,body").stop().animate({scrollTop:anh}, 1000);
+                })
+            })
+        </script>
+        
+        <script type="text/javascript">
+            (function($) {
+        	    new WOW().init();
+
+	            jQuery(window).load(function() { 
+		            jQuery("#preloader").delay(100).fadeOut("slow");
+		            jQuery("#load").delay(100).fadeOut("slow");
+	            });
+	
+            	//jQuery to collapse the navbar on scroll
+	            $(window).scroll(function() {
+	        	    if ($(".navbar").offset().top > 50) {
+			            $(".navbar-fixed-top").addClass("top-nav-collapse");
+		            } else {
+			            $(".navbar-fixed-top").removeClass("top-nav-collapse");	
+	            	}
+            	});
+            })(jQuery);
+        </script>
+        
+        <script type="text/javascript">
+            $(document).on("scroll",function(){
+	            if($(document).scrollTop() > 50){ 
+		            $(".navbar").stop().animate({
+                        opacity: '0.7'
+		            });
+	            }else{
+		            $(".navbar").stop().animate({
+                        opacity:'1.0'
+		            });
+	            }		
+            });
+        </script>
+        
+        <script type="text/javascript">
+        	//jQuery for page scrolling feature - requires jQuery Easing plugin
+	        $(function() {
+		        $('.btn-circle-scroll a').bind('click', function(event) {
+			        var $anchor = $(this);
+			        $('html, body').stop().animate({
+			           scrollTop: $($anchor.attr('href')).offset().top
+			           }, 1500, 'easeInOutExpo');
+		    	    event.preventDefault();
+		        }); 
+	        });
+        </script>
+
+        <!-- Email -->
+        <script type="text/javascript">
+            var a = "tan.650";
+            var b = "osu.edu";
+            document.getElementById("osu-email").href = "mailto:" + a + "@" + b;
+        </script>
+
+        <!--<div id="clustrmaps-widget"></div><script type="text/javascript">var _clustrmaps = {'url' : 'http://web.cse.ohio-state.edu/~tke', 'user' : 1180139, 'server' : '3', 'id' : 'clustrmaps-widget', 'version' : 1, 'date' : '2015-10-03', 'lang' : 'zh', 'corners' : 'square' };(function (){ var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'http://www3.clustrmaps.com/counter/map.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);})();</script><noscript><a href="http://www3.clustrmaps.com/user/87e1201eb"><img src="http://www3.clustrmaps.com/stats/maps-no_clusters/web.cse.ohio-state.edu-~tke-thumb.jpg" alt="Locations of visitors to this page" /></a></noscript> -->
+
+        <!--<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?u=Em8j&d=N_fnzVPTxT9LnxhA1Kyo7UsLjhDJUcDGulQVkGx8xAM"></script>-->
+        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=N_fnzVPTxT9LnxhA1Kyo7UsLjhDJUcDGulQVkGx8xAM'></script>
+
+        <!-- Start of StatCounter Code for Default Guide -->
+        <div id="clustrmaps-widget">
+            <script type="text/javascript">
+                var sc_project=10643099;
+                var sc_invisible=1; 
+                var sc_security="a2840912"; 
+                var scJsHost = (("https:" == document.location.protocol) ?
+                "https://secure." : "http://www.");
+                document.write("<sc"+"ript type='text/javascript' src='" +
+                scJsHost+
+                "statcounter.com/counter/counter.js'></"+"script>");
+            </script>
+            <noscript>
+                <div class="statcounter">
+                    <a title="web stats" href="http://statcounter.com/" target="_blank">
+                        <img class="statcounter" src="http://c.statcounter.com/10643099/0/a2840912/1/"
+                        alt="web stats">
+                    </a>
+                </div>
+            </noscript>
+        </div>
+        <!-- End of StatCounter Code for Default Guide -->
+
+    </body>
+</html>
