@@ -212,6 +212,10 @@ p {
     font-size:14px;
 }
 
+#clustrmaps{
+    margin:0 auto;
+}
+
 .btn-circle-scroll {
     width: 100%;
     text-align: center;
@@ -238,8 +242,4 @@ p {
 
 .btn-circle:focus {
     color: #fff;
-}
-
-#clustrmaps-widget{
-    margin:0 auto;
 }
