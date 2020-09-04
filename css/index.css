@@ -165,6 +165,10 @@ p {
 	text-decoration:none;
 }
 
+#intro p {
+	text-decoration:none;
+}
+
 #intro p a {
     font-weight: 600;
 	text-decoration:none;
@@ -179,6 +183,11 @@ p {
 
 .architecture_caption {
     font-size:14px;
+}
+
+#results {
+	margin:2%;
+	padding-top:20px;
 }
 
 #samples {
