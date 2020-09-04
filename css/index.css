@@ -197,16 +197,19 @@ p {
 }
 
 #footer {
+    border-top:2px solid gray;
     margin:0 auto;
     text-align:center;
 }
 
 #footer i{
 	font-size: 110%;
-	background-color:#242d40;
 	padding-top: 0px;
 	padding-bottom: 30px;
-	color:#069;
+    margin:0 auto;
+    text-align:center;
+    margin-top:40px;
+    font-size:14px;
 }
 
 .btn-circle-scroll {
