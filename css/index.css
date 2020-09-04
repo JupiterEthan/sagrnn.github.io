@@ -4,15 +4,12 @@
 
 #header_navbar nav {
     font-weight: bold;
-    /*background-color: #ffffff;*/
     background-color: #242d40;
-    /*border-color: #ffffff;*/
     border-color: #242d40;
     opacity: 1.0;
 }
 
 #header_navbar nav a {
-    /*color:#0066cc;*/
     color:#ffffff;
     text-align:center;
 }
@@ -22,7 +19,6 @@
     content: "";
     width: 0;
     height: 2px;
-    /*background: #0066cc;*/
     background: #ffffff;
     position: absolute;
     top: 70%;
@@ -31,23 +27,19 @@
 }
 
 #header_navbar nav a:hover {
-	/*background-color: #CCCCCC;*/
     background-color: #0066cc;
-    /*color: #0066cc;*/
     color: #ffffff;
 }
 
 #header_navbar nav a:hover:before {
 	left: 1em;
     width: calc(50% - 1em);
-    /*color: #0066cc;*/
     color: #ffffff;
 }
 
 #header_navbar nav a:hover:after {
 	left: 50%;
     width: calc(50% - 1em);
-    /*color: #0066cc;*/
     color: #ffffff;
 }
 
@@ -72,14 +64,12 @@
   background-color: #CCCCCC; }
 
 body {
-	/*background-color: #242d40;*/
     background-color: #FFF;
 	color: #000;
 	line-height: 1.5em;
 	margin: 0px;
 	font-family: 'Lato', sans-serif;
     font-weight: 500;
-	/*font-size:15px;*/
     font-size:18px;
 
     width: 100%;
@@ -119,7 +109,6 @@ p {
 
 #paper_title h4 {
 	font-weight: 400;
-    /*color:#ffffff;*/
     color: #FFEB99;
     padding: 20px 0px 0px 0px;
 	text-decoration:none;
@@ -127,7 +116,6 @@ p {
 
 #paper_title h5 {
 	font-weight: 400;
-    /*color:#ffffff;*/
     color: #ffffff;
     padding: 15px 0px 0px 0px;
 	text-decoration:none;
