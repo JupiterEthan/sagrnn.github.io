@@ -117,6 +117,449 @@
             <div id="samples_target" style="position: relative; top: -50px;"></div>
             <div id="samples">
                 <h1><a class="subtitle">Samples</a></h1>
+
+                <p align="justify">
+                    Here are some (binaural) audio samples for listening:
+                    <ul align="justify" >
+                        <li>Unprocessed Mixture - original binaural sound mixture</li>
+                        <li>MIMO TasNet - refer to the approach in [2]</li>
+                        <li>MIMO SAGRNN - refer to our proposed approach</li>
+                        <li>Ground Truth - original clean speech</li>
+                    </ul>
+                </p>
+
+                <br>
+
+                <h4><b>I. Male-Female Mixtures</b></h4>
+                <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Sample IDs</th>
+                            <th style="text-align:center;">Unprocessed Mixture</th>
+                            <th style="text-align:center;">MIMO TasNet</th>
+                            <th style="text-align:center;">MIMO SAGRNN</th>
+                            <th style="text-align:center;">Ground-Truth</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>A</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/4_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/4_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/4_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/4_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/4_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/4_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/4_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>B</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/31_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/31_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/31_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/31_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/31_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/31_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-female/31_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>C</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-female/207_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-female/207_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-female/207_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-female/207_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-female/207_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-female/207_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-female/207_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <h4><b>II. Male-Male Mixtures</b></h4>
+                <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Sample IDs</th>
+                            <th style="text-align:center;">Unprocessed Mixture</th>
+                            <th style="text-align:center;">MIMO TasNet</th>
+                            <th style="text-align:center;">MIMO SAGRNN</th>
+                            <th style="text-align:center;">Ground-Truth</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>D</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-male/34_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-male/34_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-male/34_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-male/34_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-male/34_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-male/34_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/male-male/34_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>E</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/130_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/130_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/130_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/130_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/130_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/130_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/130_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>F</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/210_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/210_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/210_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/210_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/210_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/210_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/male-male/210_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <h4><b>III. Female-Female Mixtures</b></h4>
+                <table class="audio_demos">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Sample IDs</th>
+                            <th style="text-align:center;">Unprocessed Mixture</th>
+                            <th style="text-align:center;">MIMO TasNet</th>
+                            <th style="text-align:center;">MIMO SAGRNN</th>
+                            <th style="text-align:center;">Ground-Truth</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>H</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/37_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/37_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/37_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/37_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/37_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/37_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/37_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>I</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/40_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/40_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/40_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/40_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/40_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/40_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/45-90/female-female/40_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr style="border-top:1px solid black">
+                            <td rowspan="2">
+                                <b>J</b>
+                            </td>
+                            <td rowspan="2">
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/female-female/305_mix.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/female-female/305_sph1_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/female-female/305_sph1_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/female-female/305_sph1.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/female-female/305_sph2_mimo_tasnet.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/female-female/305_sph2_mimo_sagrnn.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
+                                    <source src="src/samples/0-15/female-female/305_sph2.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div id="references_target" style="position: relative; top: -50px;"></div>

@@ -183,6 +183,11 @@ p {
 	padding-top:20px;
 }
 
+.audio_demos {
+    margin:0 auto;
+    text-align:center;
+}
+
 #references {
 	margin:2%;
 	padding-top:20px;
