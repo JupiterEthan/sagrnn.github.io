@@ -1,7 +1,7 @@
 var CrossfadeSample = function() {
   loadSounds(this, {
-    spkr1: '48_sph1_mimo_sagrnn.wav',
-    spkr2: '48_sph2_mimo_sagrnn.wav'
+    spkr1: 'src/crossfade/48_sph1_mimo_sagrnn.wav',
+    spkr2: 'src/crossfade/48_sph2_mimo_sagrnn.wav'
   });
   this.isPlaying = false;
 }
