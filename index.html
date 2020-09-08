@@ -24,7 +24,6 @@
         <!-- Custom Fonts -->
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.4.7/bluebird.js"></script>
     </head>
 
 
@@ -567,7 +566,7 @@
                 <p>
                     <p><input type="button" onclick="sample.toggle();" value="Play/Pause">
                     <br>
-Speaker 1 <input type="range" min="0" max="100" value="100" oninput="sample.crossfade(this);"> Speaker 2</p>
+Speaker 1 <input style="width: 80%; position:relative;" type="range" min="0" max="100" value="100" oninput="CrossfadeSample.crossfade(this);"> Speaker 2</p>
                 </p>
             </div>
 
@@ -610,8 +609,9 @@ Speaker 1 <input type="range" min="0" max="100" value="100" oninput="sample.cros
     	<script src="js/jquery.easing.min.js"></script>
 	    <script src="js/jquery.scrollTo.js"></script>
         <script src="js/wow.min.js"></script>
-        <script src="js/audiocontext.js"></script>
+        <script src="js/buffer-loader.js"></script>
         <script src="js/crossfade.js"></script>
+        <script src="js/init.js"></script>
         <script>
             var sample = new CrossfadeSample();
         </script>
