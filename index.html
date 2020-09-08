@@ -563,13 +563,15 @@
 
                 <br>
 
-                <div>
-
-                    <input type="button" onclick="CrossfadeSample.toggle();" value="Play/Pause"/>
+                <h4><b>IV. A "Crossfading" Demo</b></h4>
+                The following demo uses a controller to crossfade between two binaural speech signals separated by our MIMO SAGRNN. You can first click the "Play/Stop" button to start repeatly playing the audios, and then drag the controller to adjust the weighting factors for crossfading (or remixing) the two speakers. You need to wear a headphone for binaural hearing, and we expect you to perceive the different directions of the two speech sources. This demo is created to help demonstrate that the interaural cues are preserved in the separated speech signals by our approach.
+                <br>
+                <div style="padding-top: 10px;">
+                    <input type="button" onclick="CrossfadeSample.toggle();" value="Play/Stop"/>
 
                     <div style="padding-top: 10px; margin:0 auto;text-align:center;">
                         <div style="width: 10%; float:left; position:relative;">Speaker 1</div>
-                        <div style="width: 80%; float:left; position:relative; padding-top: 4px;"><input style="width: 100%; position:relative;" type="range" min="0" max="100" value="100" oninput="CrossfadeSample.crossfade(this);"></div>
+                        <div style="width: 80%; float:left; position:relative; padding-top: 4px;"><input style="width: 100%; position:relative;" type="range" min="0" max="100" value="50" oninput="CrossfadeSample.crossfade(this);"></div>
                         <div style="width: 10%; float:left; position:relative;">Speaker 2</div>
                         <br style="clear: left;" />
                     </div>
