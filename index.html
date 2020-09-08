@@ -24,6 +24,7 @@
         <!-- Custom Fonts -->
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.4.7/bluebird.js"></script>
     </head>
 
 
@@ -433,7 +434,7 @@
                     <tbody>
                         <tr style="border-top:1px solid black">
                             <td rowspan="2">
-                                <b>H</b>
+                                <b>G</b>
                             </td>
                             <td rowspan="2">
                                 <audio controls class="audio-player" preload="metadata" style="width: 220px;">
@@ -476,7 +477,7 @@
 
                         <tr style="border-top:1px solid black">
                             <td rowspan="2">
-                                <b>I</b>
+                                <b>H</b>
                             </td>
                             <td rowspan="2">
                                 <audio controls class="audio-player" preload="metadata" style="width: 220px;">
@@ -518,7 +519,7 @@
                         </tr>
                         <tr style="border-top:1px solid black">
                             <td rowspan="2">
-                                <b>J</b>
+                                <b>I</b>
                             </td>
                             <td rowspan="2">
                                 <audio controls class="audio-player" preload="metadata" style="width: 220px;">
@@ -560,6 +561,13 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <br>
+
+                <p>
+                    <p><input type="button" onclick="sample.toggle();" value="Play/Pause">
+Drums <input type="range" min="0" max="100" value="100" oninput="sample.crossfade(this);"> Organ</p>
+                </p>
             </div>
 
             <div id="references_target" style="position: relative; top: -50px;"></div>
@@ -601,6 +609,11 @@
     	<script src="js/jquery.easing.min.js"></script>
 	    <script src="js/jquery.scrollTo.js"></script>
         <script src="js/wow.min.js"></script>
+        <script src="js/audiocontext.js"></script>
+        <script src="crossfade.js"></script>
+        <script>
+            var sample = new CrossfadeSample();
+        </script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
@@ -660,7 +673,6 @@
 		        });
 	        });
         </script>
-
 
     </body>
 </html>
