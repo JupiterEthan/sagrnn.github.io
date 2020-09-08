@@ -2,8 +2,8 @@ var CrossfadeSample = {playing:false};
 
 CrossfadeSample.play = function() {
   // Create two sources.
-  this.ctl1 = createSource(BUFFERS.drums);
-  this.ctl2 = createSource(BUFFERS.organ);
+  this.ctl1 = createSource(BUFFERS.spkr1);
+  this.ctl2 = createSource(BUFFERS.spkr2);
   // Mute the second source.
   this.ctl1.gainNode.gain.value = 0;
   // Start playback in a loop
