@@ -563,11 +563,17 @@
 
                 <br>
 
-                <p>
-                    <p><input type="button" onclick="sample.toggle();" value="Play/Pause">
-                    <br>
-Speaker 1 <input style="width: 80%; position:relative;" type="range" min="0" max="100" value="100" oninput="CrossfadeSample.crossfade(this);"> Speaker 2</p>
-                </p>
+                <div>
+
+                    <input type="button" onclick="sample.toggle();" value="Play/Pause">
+
+                    <div style="padding-top: 10px; margin:0 auto;text-align:center;">
+                        <div style="width: 10%; float:left; position:relative;">Speaker 1</div>
+                        <div style="width: 80%; float:left; position:relative; padding-top: 4px;"><input style="width: 100%; position:relative;" type="range" min="0" max="100" value="100" oninput="CrossfadeSample.crossfade(this);"></div>
+                        <div style="width: 10%; float:left; position:relative;">Speaker 2</div>
+                        <br style="clear: left;" />
+                    </div>
+                </div>
             </div>
 
             <div id="references_target" style="position: relative; top: -50px;"></div>
@@ -612,9 +618,6 @@ Speaker 1 <input style="width: 80%; position:relative;" type="range" min="0" max
         <script src="js/buffer-loader.js"></script>
         <script src="js/crossfade.js"></script>
         <script src="js/init.js"></script>
-        <script>
-            var sample = new CrossfadeSample();
-        </script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
