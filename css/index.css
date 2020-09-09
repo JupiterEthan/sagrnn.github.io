@@ -212,9 +212,21 @@ input[type='range']::-webkit-slider-thumb {
 	padding-top:20px;
 }
 
-#acknowledgments {
+#licenses {
 	margin:2%;
 	padding-top:20px;
+}
+
+#licenses p a {
+    font-weight: 600;
+	text-decoration:none;
+    color: #0066cc;
+}
+
+#licenses p a:hover {
+    font-weight: 600;
+	color:#F90;
+	text-decoration:underline;
 }
 
 #footer {
