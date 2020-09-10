@@ -564,7 +564,7 @@
                 <br>
 
                 <h4><b>IV. A "Crossfading" Demo</b></h4>
-                The following demo crossfades between two binaural speech signals separated by our MIMO SAGRNN. You can first click the "Play/Stop" button to start repeatly playing the audios, and then drag the controller to adjust the weighting factors for crossfading (or remixing) the two speakers. You need to wear a headphone for binaural hearing, and we expect you to perceive the different directions of the two speech sources. This demo is created to help demonstrate that the interaural cues are preserved in the separated speech signals by our approach.
+                The following demo crossfades between two binaural speech signals separated by our MIMO SAGRNN. You can first click the "Play/Stop" button to start repeatly playing the audios, and then drag the scroll box to adjust the weighting factors for crossfading (or remixing) the two speakers. You need to wear a headphone for binaural hearing, and we expect you to perceive the different directions of the two speech sources. This demo is created to help demonstrate that the interaural cues are preserved in the separated speech signals by our approach.
                 <br>
                 <div style="padding-top: 10px; padding-bottom: 20px;">
                     <input type="button" onclick="CrossfadeSample.toggle();" value="Play/Stop"/>
@@ -576,7 +576,19 @@
                         <br style="clear: left;" />
                     </div>
                 </div>
-                As you may hear, the female speaker is in the left half-space, and the male speaker is in the right half-space.
+                As you may hear, the female speaker is in the left half-space, and the male speaker is in the right half-space. We create another demo for comparison, in which each speaker only has the signal for the left-ear channel (i.e. mono audio).
+                <br>
+                <div style="padding-top: 10px; padding-bottom: 20px;">
+                    <input type="button" onclick="CrossfadeSample_mono.toggle();" value="Play/Stop"/>
+
+                    <div style="padding-top: 10px; margin:0 auto;text-align:center;">
+                        <div style="width: 10%; float:left; position:relative;">Speaker 1</div>
+                        <div style="width: 80%; float:left; position:relative; padding-top: 4px;"><input style="width: 100%; position:relative;" type="range" min="0" max="100" value="100" oninput="CrossfadeSample_mono.crossfade(this);"></div>
+                        <div style="width: 10%; float:left; position:relative;">Speaker 2</div>
+                        <br style="clear: left;" />
+                    </div>
+                </div>
+                Now we are unable to perceive the directions of the speech sources due to the absence of interaural cues.
             </div>
 
             <div id="references_target" style="position: relative; top: -50px;"></div>
@@ -646,6 +658,7 @@
         <script src="js/wow.min.js"></script>
         <script src="js/buffer-loader.js"></script>
         <script src="js/crossfade.js"></script>
+        <script src="js/crossfade_mono.js"></script>
         <script src="js/init.js"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

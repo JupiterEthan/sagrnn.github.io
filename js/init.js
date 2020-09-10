@@ -6,7 +6,9 @@ var context = null;
 // An object to track the buffers to load {name: path}
 var BUFFERS_TO_LOAD = {
     spkr1: 'src/crossfade/1378_sph1_mimo_sagrnn.wav',
-    spkr2: 'src/crossfade/1378_sph2_mimo_sagrnn.wav'
+    spkr2: 'src/crossfade/1378_sph2_mimo_sagrnn.wav',
+    spkr1_mono: 'src/crossfade/1378_sph1_mimo_sagrnn_mono.wav',
+    spkr2_mono: 'src/crossfade/1378_sph2_mimo_sagrnn_mono.wav'
 };
 
 // Loads all sound samples into the buffers object.
