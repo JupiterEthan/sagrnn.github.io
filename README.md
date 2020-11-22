@@ -1,6 +1,6 @@
 # SAGRNN: Self-Attentive Gated RNNs for Binaural Speaker Separation with Interaural Cue Preservation
 
-This repository presents the [demos](https://jupiterethan.github.io/sagrnn.github.io/) for our paper titled "[SAGRNN: Self-Attentive Gated RNNs for Binaural Speaker Separation with Interaural Cue Preservation](https://arxiv.org/abs/2009.01381)", submitted to IEEE Signal Processing Letters.
+This repository presents the [demos](https://jupiterethan.github.io/sagrnn.github.io/) for our paper titled "[SAGRNN: Self-Attentive Gated RNNs for Binaural Speaker Separation with Interaural Cue Preservation](https://arxiv.org/abs/2009.01381)", accepted by IEEE Signal Processing Letters.
 
 ## How to cite
 
