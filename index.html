@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -7,10 +6,10 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
-        <meta name="description" content="SAGRNN Demos">
+        <meta name="description" content="Homepage of Ke Tan">
         <meta name="author" content="Ke Tan">
 
-	    <title>SAGRNN: Self-Attentive Gated RNNs for Binaural Speaker Separation with Interaural Cue Preservation</title>
+	    <title>Ke Tan (谭可)</title>
 
         <!-- Bootflat CSS -->
         <link rel="stylesheet" href="css/bootflat.css">
@@ -24,6 +23,7 @@
         <!-- Custom Fonts -->
         <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+        <script src="https://kit.fontawesome.com/6169794306.js" crossorigin="anonymous"></script>
     </head>
 
 
@@ -43,601 +43,275 @@
 
     		        <div class="collapse navbar-collapse navbar-right" id="dropdown-box-1">
 	    			    <ul class="nav navbar-nav">
-		    			    <li><a href="#intro_target">Intro</a></li>
-                            <li><a href="#results_target">Results</a></li>
-			    			<li><a href="#samples_target">Samples</a></li>
-				    		<li><a href="#references_target">References</a></li>
-							<li><a href="#licenses_target">Licenses</a></li>
+		    			    <li><a href="#home_target">Home</a></li>
+			    			<li><a href="#bio_target">Bio</a></li>
+					    	<li><a href="#manuscripts_target">Manuscripts</a></li>
+		    				<li><a href="#publications_target">Publications</a></li>
+                            <li><a href="#software_target">Software</a></li>
+                            <li><a href="#presentations_target">Presentations</a></li>
+		    				<li><a href="#working_target">Working</a></li>
+                            <li><a href="#acknowledgments_target">Acknowledgments</a></li>
 				    	</ul>
 			        </div>
                 </div>
 		    </nav>
 	    </header>
 
-		<div id="paper_info">
-			<div id="paper_title">
-    	        <h1>SAGRNN: Self-Attentive Gated RNNs for Binaural Speaker Separation with Interaural Cue Preservation</h1>
-				<h4>Ke Tan<sup>1</sup>, Buye Xu<sup>2</sup>, Anurag Kumar<sup>2</sup>, Eliya Nachmani<sup>3, 4</sup>, Yossi Adi<sup>3</sup></h4>
-				<h5><sup>1</sup>The Ohio State University, <sup>2</sup>Facebook Reality Labs, <sup>3</sup>Facebook AI Research, <sup>4</sup>Tel-Aviv University</h5>
-			</div>
-		</div>
 
         <div id="container">
+            <div id="home_target" style="position: relative; top: -50px;"></div>
+	        <div id="home">
+                <div id="photo"> <a><img src="img/photo.png" width="230" height="230"/></a> </div>
 
-            <div id="intro_target" style="position: relative; top: -50px;"></div>
-	        <div id="intro">
-				<h1><a class="subtitle">Intro</a></h1>
-				<p>In this post, we present a novel framework called <i>multiple-input multiple-output self-attentive gated recurrent neural network</i> (MIMO SAGRNN) for binaural speaker separation, which produces a binaural estimate for each of the target speakers with preserved interaural cues. This approach was proposed in our paper titled "<i>SAGRNN: Self-Attentive Gated RNNs for Binaural Speaker Separation with Interaural Cue Preservation</i>", accepted by IEEE Signal Processing Letters.</p>
-				<p>In this study, the goal of binaural speaker separation is to separate \(C\) concurrent binaural speech signals \(\mathbf{s}_1, \dots, \mathbf{s}_C\) from a sound mixture \(\mathbf{y}\), where \(\mathbf{y} = \sum_{c=1}^C \mathbf{s}_c\) (noise-free condition) or \(\mathbf{y} = \sum_{c=1}^C \mathbf{s}_c + \sum_{c_n=1}^{C_n} \mathbf{n}_{c_n} \) (noisy condition). Here \(\mathbf{n}_{c_n}\) denotes the \(c_n\)-th binaural noise signal and \(C_n\) the number of noise sources. We assume that there is no room reverberation in the acoustic environment.</p>
-                <p>The SAGRNN network architecture extends the gated RNN in [1] by additionally incorporating self-attention mechanisms and dense connectivity. MIMO SAGRNN is then derived from a single-input single-output (SISO) SAGRNN by first extending the SISO SAGRNN into a multiple-input single-output (MISO) layout, in which we create two encoders, one for the <i>reference ear</i> input and the other for the <i>non-reference ear</i> input. This MISO SAGRNN estimates the separated signals in the reference ear. The MIMO system is formulated by alternately treating each ear as the reference ear, yielding estimates for both ears in a symmetric manner.</p>
-                <p>Our experimental results show that the proposed approach significantly outperforms a recent binaural separation approach (i.e. MIMO TasNet [2]) in terms of &#916;SDR, &#916;SNR, ESTOI and PESQ. Moreover, our approach effectively preserves the auditory spatial cues of talkers.</p>
-                <p>For full details, see <a href="https://arxiv.org/abs/2009.01381" target="_blank">our paper</a>.</p>
-
-                <br>
-                <a><img src="img/siso_sagrnn.png" width="100%"/></a>
-                <div class="architecture_caption">Fig. 1. Diagram of SISO SAGRNN. The dotted lines represent the procedures that exist only during training.</div>
-
-                <br>
-                <a><img src="img/SA-MULCAT.png" width="100%"/></a>
-                <div class="architecture_caption">Fig. 2. Diagram of the SA-MULCAT block. The dotted lines indicate that the procedures exist in all SA-MULCAT blocks except the first one. The symbol \(\bigotimes\) represents the element-wise multiplication, and \(\bigoplus\) the element-wise addition.</div>
-
-                <br>
-                <div style="width:100%; position:relative; display:flex;">
-                    <div style="width:50%; padding-left:15%; padding-right:15%; float:left; position:relative;">
-                        <a><img src="img/Self-Attention Block.png" style="width:100%; position:relative;"/></a>
+    	        <div id="intro">
+        	        <div id="name"> <h1>Ke Tan (谭可)</h1> </div>
+                    <div>
+        	            <p>
+                            Ph.D. candidate <br/>
+            	            <a href="https://cse.osu.edu/" target="_blank">Department of Computer Science and Engineering</a> <br/>
+            	            <a href="https://www.osu.edu/" target="_blank">The Ohio State University</a> <br/>
+            	            Advisor: <a href="http://web.cse.ohio-state.edu/~dwang/" target="_blank">DeLiang Wang</a> <br/>
+                            Lab: <a href="http://www.cse.ohio-state.edu/pnl" target="_blank">Perception and Neurodynamics Laboratory (PNL)</a> <br/>
+                            Email: <a>tan.650@osu.edu</a>
+                        </p>
                     </div>
-                    <div style="width:50%; padding-left:5%; padding-right:5%; float:right; position:relative;">
-                        <a><img src="img/miso_mimo.png" style="width:100%; position:relative;"/></a>
+                    <div id="contact">
+                        <ul class="list-inline">
+                            <li><a href="./doc/Curriculum Vitae.pdf" target="_blank"><i class="fas fa-file"></i> CV</a></li>
+                            <li><a href="https://www.linkedin.com/in/ke-tan/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="https://scholar.google.com/citations?hl=en&user=bAzfOgoAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+                            <li><a href="https://www.researchgate.net/profile/Ke_Tan6" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div style="width:100%; position:relative; display:flex;">
-                    <div class="architecture_caption" style="width:50%; text-align:center;">(a)</div>
-                    <div class="architecture_caption" style="width:50%; text-align:center;">(b)</div>
-                </div>
-                <div class="architecture_caption">Fig. 3. (a) Diagram of the self-attention block. (b) Overview of the MIMO separation system with an underlying MISO system.</div>
             </div>
 
             <div id="clear"></div>
 
-            <div id="results_target" style="position: relative; top: -50px;"></div>
-	        <div id="results">
-                <h1><a class="subtitle">Results</a></h1>
-                <div style="width:100%; position:relative; display:flex;">
-                    <div style="width:50%; padding-left:2%; padding-right:2%; float:left; position:relative;">
-                        <div><a><img src="img/table1.png" style="width:100%; position:relative;"/></a></div>
-                        <div style="position:relative; width:85%; margin-left:7.5%; margin-right:7.5%;"><a><img src="img/table3.png" style="width:100%; position:relative; padding-top:50px;"/></a></div>
-                    </div>
-                    <div style="width:50%; padding-left:2%; padding-right:2%; float:right; position:relative;">
-                        <div style="position:relative; width:85%; margin-left:7.5%; margin-right:7.5%;"><a><img src="img/table2.png" style="width:100%; position:relative;"/></a></div>
-                        <div><a><img src="img/table4.png" style="width:100%; position:relative; padding-top:15px;"/></a></div>
-                    </div>
-                </div>
+            <div id="bio_target" style="position: relative; top: -50px;"></div>
+            <div id="bio">
+    	        <h2><a name="bio">Bio</a></h2>
+
+                <p>I am currently a sixth-year (final-year) Ph.D. student in CSE at OSU, advised by Prof. <a href="http://web.cse.ohio-state.edu/~dwang/" target="_blank">DeLiang Wang</a>. Before studying at OSU, I received the bachelor degree in electronic information engineering from <a href="http://en.ustc.edu.cn/" target="_blank">University of Science and Technology of China</a> (USTC) in 2015.
+
+                <p>My research focuses on <b><i>speech enhancement</i></b>, <b><i>speech separation</i></b>, <b><i>speech dereverberation</i></b>, and <b><i>deep learning</i></b>. I am also interested in <b><i>microphone array processing</i></b>, <b><i>audio-visual speech enhancement and separation</i></b>, <b><i>acoustic echo cancellation</i></b> and <b><i>keyword spotting</i></b>. I serve as a reviewer for IEEE/ACM Transactions on Audio, Speech, and Language Processing, IEEE Journal of Selected Topics in Signal Processing, IEEE Signal Processing Letters, IEEE Communications Letters, The Journal of the Acoustical Society of America, and Speech Communication.</p>
             </div>
 
-            <div id="samples_target" style="position: relative; top: -50px;"></div>
-            <div id="samples">
-                <h1><a class="subtitle">Samples</a></h1>
+            <div id="manuscripts_target" style="position: relative; top: -50px;"></div>
+            <div id="manuscripts">
+    	        <h2><a name="manuscripts">Manuscripts</a></h2>
+                <p align="justify">
+                    [2] <b>K. Tan</b> and D. L. Wang, <b>"Towards Model Compression for Deep Learning Based Speech Enhancement"</b>, in submission to <i>IEEE/ACM Transactions on Audio, Speech, and Language Processing (<b>IEEE/ACM TASLP</b>)</i>, under review. <br>
+                </p>
 
                 <p align="justify">
-                    Here are some (binaural) audio samples for listening:
-                    <ul align="justify" >
-                        <li>Unprocessed Mixture - original binaural sound mixture</li>
-                        <li>MIMO TasNet - refer to the approach in [2], where the network configurations are slightly changed such that the model is noncausal and has a comparable size to our model</li>
-                        <li>MIMO SAGRNN - refer to our proposed approach</li>
-                        <li>Ground-Truth - original clean speech</li>
-                    </ul>
+                    [1] <b>K. Tan</b>, X. Zhang, and D. L. Wang, <b>"Deep Learning Based Real-Time Speech Enhancement for Dual-Microphone Mobile Phones"</b>, in submission to <i>IEEE/ACM Transactions on Audio, Speech, and Language Processing (<b>IEEE/ACM TASLP</b>)</i>, under review. <br>
                 </p>
-
-                <br>
-
-                <h4><b>I. Male-Female Mixtures</b></h4>
-                <table class="audio_demos">
-                    <thead>
-                        <tr>
-                            <th style="text-align:center;">Sample IDs</th>
-                            <th style="text-align:center;">Unprocessed Mixture</th>
-                            <th style="text-align:center;">MIMO TasNet</th>
-                            <th style="text-align:center;">MIMO SAGRNN</th>
-                            <th style="text-align:center;">Ground-Truth</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>A</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/4_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/4_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/4_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/4_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/4_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/4_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/4_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>B</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/31_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/31_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/31_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/31_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/31_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/31_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-female/31_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>C</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-female/207_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-female/207_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-female/207_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-female/207_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-female/207_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-female/207_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-female/207_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <br>
-                <h4><b>II. Male-Male Mixtures</b></h4>
-                <table class="audio_demos">
-                    <thead>
-                        <tr>
-                            <th style="text-align:center;">Sample IDs</th>
-                            <th style="text-align:center;">Unprocessed Mixture</th>
-                            <th style="text-align:center;">MIMO TasNet</th>
-                            <th style="text-align:center;">MIMO SAGRNN</th>
-                            <th style="text-align:center;">Ground-Truth</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>D</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-male/34_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-male/34_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-male/34_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-male/34_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-male/34_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-male/34_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/male-male/34_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>E</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/130_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/130_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/130_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/130_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/130_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/130_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/130_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>F</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/210_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/210_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/210_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/210_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/210_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/210_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/male-male/210_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <br>
-                <h4><b>III. Female-Female Mixtures</b></h4>
-                <table class="audio_demos">
-                    <thead>
-                        <tr>
-                            <th style="text-align:center;">Sample IDs</th>
-                            <th style="text-align:center;">Unprocessed Mixture</th>
-                            <th style="text-align:center;">MIMO TasNet</th>
-                            <th style="text-align:center;">MIMO SAGRNN</th>
-                            <th style="text-align:center;">Ground-Truth</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>G</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/37_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/37_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/37_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/37_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/37_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/37_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/37_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>H</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/40_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/40_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/40_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/40_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/40_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/40_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/45-90/female-female/40_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr style="border-top:1px solid black">
-                            <td rowspan="2">
-                                <b>I</b>
-                            </td>
-                            <td rowspan="2">
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/female-female/305_mix.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/female-female/305_sph1_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/female-female/305_sph1_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/female-female/305_sph1.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/female-female/305_sph2_mimo_tasnet.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/female-female/305_sph2_mimo_sagrnn.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                            <td>
-                                <audio controls class="audio-player" preload="metadata" style="width: 220px;">
-                                    <source src="src/samples/0-15/female-female/305_sph2.wav" type="audio/wav">
-                                </audio>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <br>
-
-                <h4><b>IV. A "Crossfading" Demo</b></h4>
-                The following demo crossfades between two binaural speech signals separated by our MIMO SAGRNN. You can first click the "Play/Stop" button to start repeatly playing the audios, and then drag the scroll box to adjust the weighting factors for crossfading (or remixing) the two speakers. You need to wear a headphone for binaural hearing, and we expect you to perceive the different directions of the two speech sources. This demo is created to help demonstrate that the interaural cues are preserved in the separated speech signals by our approach.
-                <br>
-                <div style="padding-top: 10px; padding-bottom: 20px;">
-                    <input type="button" onclick="CrossfadeSample.toggle();" value="Play/Stop"/>
-
-                    <div style="padding-top: 10px; margin:0 auto;text-align:center;">
-                        <div style="width: 10%; float:left; position:relative;">Speaker 1</div>
-                        <div style="width: 80%; float:left; position:relative; padding-top: 4px;"><input style="width: 100%; position:relative;" type="range" min="0" max="100" value="100" oninput="CrossfadeSample.crossfade(this);"></div>
-                        <div style="width: 10%; float:left; position:relative;">Speaker 2</div>
-                        <br style="clear: left;" />
-                    </div>
-                </div>
-                As you may hear, the female speaker is in the left half-space, and the male speaker is in the right half-space. We create another demo for comparison, in which each speaker only has the signal for the left-ear channel (i.e. mono audio).
-                <br>
-                <div style="padding-top: 10px; padding-bottom: 20px;">
-                    <input type="button" onclick="CrossfadeSample_mono.toggle();" value="Play/Stop"/>
-
-                    <div style="padding-top: 10px; margin:0 auto;text-align:center;">
-                        <div style="width: 10%; float:left; position:relative;">Speaker 1</div>
-                        <div style="width: 80%; float:left; position:relative; padding-top: 4px;"><input style="width: 100%; position:relative;" type="range" min="0" max="100" value="100" oninput="CrossfadeSample_mono.crossfade(this);"></div>
-                        <div style="width: 10%; float:left; position:relative;">Speaker 2</div>
-                        <br style="clear: left;" />
-                    </div>
-                </div>
-                Now we are unable to perceive the directions of the speech sources due to the absence of interaural cues.
             </div>
 
-            <div id="references_target" style="position: relative; top: -50px;"></div>
-            <div id="references">
-                <h1><a class="subtitle">References</a></h1>
+            <div id="publications_target" style="position: relative; top: -50px;"></div>
+            <div id="publications">
+    	        <h2><a name="publications">Publications</a></h2>
+                <h4><a name="journal"><i>Journal Articles</i></a></h4>
                 <p align="justify">
-                    [1] E. Nachmani, Y. Adi, and L. Wolf. Voice separation with an unknown number of multiple speakers. In <i>International Conference on Machine Learning</i>, 2020.
+                    [6] E. W. Healy, <b>K. Tan</b>, E. M. Johnson, and D. L. Wang, <b>"An Effectively Causal Deep Learning Algorithm to Increase Intelligibility in Novel Noises for Hearing-Impaired Listeners"</b>, in <i>Journal of the Acoustical Society of America (<b>JASA</b>)</i>, in press, 2021. <br>
                 </p>
+
                 <p align="justify">
-                    [2] C. Han, Y. Luo, and N. Mesgarani. Real-time binaural speech separation with preserved spatial cues. In <i>IEEE International Conference on Acoustics, Speech and Signal Processing</i>, pages 6404–6408. IEEE, 2020.
+                    [5] <b>K. Tan</b>, B. Xu, A. Kumar, E. Nachmani, and Y. Adi, <b>"SAGRNN: Self-Attentive Gated RNN for Binaural Speaker Separation with Interaural Cue Preservation"</b>, in <i>IEEE Signal Processing Letters (<b>IEEE SPL</b>)</i>, vol. 28, pp. 26-30, 2021. <br>
+                    <a class="label label-success" href="doc/papers/TXKNA.spl21.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2021sagrnn.txt" target="_blank">BibTeX</a>
+                    &nbsp;
+                    <a class="demos label" href="https://jupiterethan.github.io/sagrnn.github.io/" target="_blank">Demos</a>
                 </p>
-            </div>
 
-            <div id="licenses_target" style="position: relative; top: -50px;"></div>
-            <div id="licenses">
-                <h1><a class="subtitle">Licenses</a></h1>
-                <h4><b>I. The CIPIC HRTF Database</b></h4>
-                <p>
-                    Website: <a href="https://www.ece.ucdavis.edu/cipic/spatial-sound/hrtf-data/" target="_blank">https://www.ece.ucdavis.edu/cipic/spatial-sound/hrtf-data/</a>
+                <p align="justify">
+                    [4] <b>K. Tan</b>, Y. Xu, S.-X. Zhang, M. Yu, and D. Yu, <b>"Audio-Visual Speech Separation and Dereverberation with a Two-Stage Multimodal Network"</b>, in <i>IEEE Journal of Selected Topics in Signal Processing (<b>IEEE JSTSP</b>)</i>, vol. 14, pp. 542-553, 2020. <br>
+                    <a class="label label-success" href="doc/papers/TXZYY.jstsp20.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2020audio.txt" target="_blank">BibTeX</a>
+                    &nbsp;
+                    <a class="demos label" href="https://jupiterethan.github.io/av-enh.github.io/" target="_blank">Demos</a>
                 </p>
-                <p>
-                    Copyright Notice:
-                    THE REGENTS OF THE UNIVERSITY OF CALIFORNIA MAKE NO REPRESENTATION OR WARRANTIES WITH RESPECT TO THE CONTENTS HEREOF AND SPECIFICALLY DISCLAIM ANY IMPLIED WARRANTIES OR MERCHANTAB ILITY OR FITNESS FOR ANY PARTICULAR PURPOSE. Further, the Regents of the University of California reserve the right to revise this software and/or documentation and to make changes from time to time in the content hereof without obligation of the Regents of the University of California to notify any person of such revision or change.
+
+                <p align="justify">
+                    [3] <b>K. Tan</b> and D. L. Wang, <b>"Learning Complex Spectral Mapping with Gated Convolutional Recurrent Networks for Monaural Speech Enhancement"</b>, in <i>IEEE/ACM Transactions on Audio, Speech, and Language Processing (<b>IEEE/ACM TASLP</b>)</i>, vol. 28, pp. 380-390, 2020. <br>
+                    <a class="label label-success" href="doc/papers/TW.taslp20.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2020learning.txt" target="_blank">BibTeX</a>
+                    &nbsp;
+                    <a class="code label" href="https://github.com/JupiterEthan/GCRN-complex" target="_blank">Code</a>
                 </p>
-                <p>
-                    Citation:
-                    V. R. Algazi, R. O. Duda, D. M. Thompson, and C. Avendano. The cipic hrtf database. In <i>Proceedings of the 2001 IEEE Workshop on the Applications of Signal Processing to Audio and Acoustics (Cat. No. 01TH8575)</i>, pages 99–102. IEEE, 2001.
+
+                <p align="justify">
+                    [2] P. Wang, <b>K. Tan</b> and D. L. Wang, <b>"Bridging the Gap Between Monaural Speech Enhancement and Recognition with Distortion-Independent Acoustic Modeling"</b>, in <i>IEEE/ACM Transactions on Audio, Speech, and Language Processing (<b>IEEE/ACM TASLP</b>)</i>, vol. 28, pp. 39-48, 2020. <br>
+                    <a class="label label-success" href="doc/papers/WTW.taslp20.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/wang2020bridging.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [1] <b>K. Tan</b>, J. Chen, and D. L. Wang, <b>"Gated Residual Networks with Dilated Convolutions for Monaural Speech Enhancement"</b>, in <i>IEEE/ACM Transactions on Audio, Speech, and Language Processing (<b>IEEE/ACM TASLP</b>)</i>, vol. 27, pp. 189-198, 2019. <br>
+                    <a class="label label-success" href="doc/papers/TCW.taslp19.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2019gated.txt" target="_blank">BibTeX</a>
                 </p>
 
                 <br>
-                <h4><b>II. WSJ0</b></h4>
-                <p>Website: <a href="https://catalog.ldc.upenn.edu/LDC93S6A" target="_blank">https://catalog.ldc.upenn.edu/LDC93S6A</a></p>
-                <p>License(s): LDC User Agreement for Non-Members</p>
-                <p>
-                    Citation:
-                    J. Garofolo, D. Graff, D. Paul, and D. Pallett. Csr-i (wsj0) complete ldc93s6a. <i>Web Download. Philadelphia: Linguistic Data Consortium</i>, 83, 1993.
+                <h4><a name="conference"><i>Conference Papers</i></a></h4>
+                <p align="justify">
+                    [12] <b>K. Tan</b>, X. Zhang, and D. L. Wang, <b>"Real-Time Speech Enhancement for Mobile Communication Based on Dual-Channel Complex Spectral Mapping"</b>, in <i>IEEE International Conference on Acoustics, Speech and Signal Processing (<b>ICASSP</b>)</i>, 2021. <br>
+                    <a class="label label-info" href="doc/papers/bib/tan2021real.txt" target="_blank">BibTeX</a>
                 </p>
 
-                <br>
-                <h4><b>III. Freesound Noises</b></h4>
-                <p>Website: <a href="https://freesound.org/people/Robinhood76/" target="_blank">https://freesound.org/people/Robinhood76/</a></p>
-                <p>Attribution Noncommercial: <a href="http://creativecommons.org/licenses/by-nc/3.0/" target="_blank">http://creativecommons.org/licenses/by-nc/3.0/</a></p>
+                <p align="justify">
+                    [11] <b>K. Tan</b> and D. L. Wang, <b>"Compressing Deep Neural Networks for Efficient Speech Enhancement"</b>, in <i>IEEE International Conference on Acoustics, Speech and Signal Processing (<b>ICASSP</b>)</i>, 2021. <br>
+                    <a class="label label-info" href="doc/papers/bib/tan2021compressing.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [10] <b>K. Tan</b> and D. L. Wang, <b>"Improving Robustness of Deep Learning Based Monaural Speech Enhancement Against Processing Artifacts"</b>, in <i>IEEE International Conference on Acoustics, Speech and Signal Processing (<b>ICASSP</b>)</i>, pp. 6914-6918, 2020. <br>
+                    <a class="label label-success" href="doc/papers/TW.icassp20.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2020improving.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [9] H. Zhang, <b>K. Tan</b> and D. L. Wang, <b>"Deep Learning for Joint Acoustic Echo and Noise Cancellation with Nonlinear Distortions"</b>, in <i>the 20th Annual Conference of the International Speech Communication Association (<b>INTERSPEECH</b>)</i>, pp. 4255-4259, 2019. <br>
+                    <a class="label label-success" href="doc/papers/ZTW.interspeech19.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/zhang2019deep.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [8] P. Wang, <b>K. Tan</b> and D. L. Wang, <b>"Bridging the Gap Between Monaural Speech Enhancement and Recognition with Distortion-Independent Acoustic Modeling"</b>, in <i>the 20th Annual Conference of the International Speech Communication Association (<b>INTERSPEECH</b>)</i>, pp. 471-475, 2019. <br>
+                    <a class="label label-success" href="doc/papers/WTW.interspeech19.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/wang2019bridging.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [7] <b>K. Tan</b> and D. L. Wang, <b>"Complex Spectral Mapping with a Convolutional Recurrent Network for Monaural Speech Enhancement"</b>, in <i>IEEE International Conference on Acoustics, Speech and Signal Processing (<b>ICASSP</b>)</i>, pp. 6865-6869, 2019. <br>
+                    <a class="label label-success" href="doc/papers/TW.icassp19.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2019complex.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [6] <b>K. Tan</b>, X. Zhang, and D. L. Wang, <b>"Real-Time Speech Enhancement Using an Efficient Convolutional Recurrent Network for Dual-Microphone Mobile Phones in Close-Talk Scenarios"</b>, in <i>IEEE International Conference on Acoustics, Speech and Signal Processing (<b>ICASSP</b>)</i>, pp. 5751-5755, 2019. <br>
+                    <a class="label label-success" href="doc/papers/TZW.icassp19.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2019real.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [5] Z.-Q. Wang, <b>K. Tan</b>, and D. L. Wang, <b>"Deep Learning Based Phase Reconstruction for Speaker Separation: A Trigonometric Perspective"</b>, in <i>IEEE International Conference on Acoustics, Speech and Signal Processing (<b>ICASSP</b>)</i>, pp. 71-75, 2019. <br>
+                    <a class="label label-success" href="doc/papers/WTW.icassp19.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/wang2019deep.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [4] <b>K. Tan</b> and D. L. Wang, <b>"A Convolutional Recurrent Neural Network for Real-Time Speech Enhancement"</b>, in <i>the 19th Annual Conference of the International Speech Communication Association (<b>INTERSPEECH</b>)</i>, pp. 3229-3233, 2018. <br>
+                    <a class="label label-success" href="doc/papers/Tan-Wang1.interspeech18.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2018convolutional.txt" target="_blank">BibTeX</a>
+                    &nbsp;
+                    <a class="code label" href="https://github.com/JupiterEthan/CRN-causal" target="_blank">Code</a>
+                </p>
+
+                <p align="justify">
+                    [3] <b>K. Tan</b> and D. L. Wang, <b>"A Two-Stage Approach to Noisy Cochannel Speech Separation with Gated Residual Networks"</b>, in <i>the 19th Annual Conference of the International Speech Communication Association (<b>INTERSPEECH</b>)</i>, pp. 3484-3488, 2018. <br>
+                    <a class="label label-success" href="doc/papers/Tan-Wang2.interspeech18.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2018two.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [2] <b>K. Tan</b>, J. Chen, and D. L. Wang, <b>"Gated Residual Networks with Dilated Convolutions for Supervised Speech Separation"</b>, in <i>IEEE International Conference on Acoustics, Speech and Signal Processing (<b>ICASSP</b>)</i>, pp. 21-25, 2018. <br>
+                    <a class="label label-success" href="doc/papers/TCW.icassp18.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/tan2018gated.txt" target="_blank">BibTeX</a>
+                </p>
+
+                <p align="justify">
+                    [1] S. Zhu, <b>K. Tan</b>, X. Zhang, Z. Liu and B. Liu, <b>"MICROST: A Mixed Approach for Heart Rate Monitoring During Intensive Physical Exercise Using Wrist-Type PPG Signals"</b>, in <i>the 37th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (<b>EMBC</b>)</i>, pp. 2347-2350, 2015. <br>
+                    <a class="label label-success" href="doc/papers/MICROST.pdf" target="_blank">Paper</a>
+                    &nbsp;
+                    <a class="label label-info" href="doc/papers/bib/zhu2015microst.txt" target="_blank">BibTeX</a>
+                </p>
+
             </div>
+
+            <div id="software_target" style="position: relative; top: -50px;"></div>
+            <div id="software">
+    	        <h2><a name="software">Software</a></h2>
+                <ul>
+                    <li>GCRN for monaural speech enhancement: <a href="doc/papers/TW.taslp20.pdf" target="_blank">2020 Tan-Wang paper</a>, and <a href="https://github.com/JupiterEthan/GCRN-complex" target="_blank">PyTorch code on GitHub</a>.</li>
+                    <li>CRN for monaural speech enhancement: <a href="doc/papers/Tan-Wang1.interspeech18.pdf" target="_blank">2018 Tan-Wang paper</a>, and <a href="https://github.com/JupiterEthan/CRN-causal" target="_blank">PyTorch code on GitHub</a>.</li>
+                </ul>
+            </div>
+
+            <div id="presentations_target" style="position: relative; top: -50px;"></div>
+            <div id="presentations">
+    	        <h2><a name="presentations">Presentations</a></h2>
+
+                <p align="justify">
+                    [5] <a class="label label-success" href="doc/presentations/robustness_icassp2020" target="_blank">Slides</a> <i>Improving Robustness of Deep Learning Based Monaural Speech Enhancement Against Processing Artifacts</i>, IEEE ICASSP (virtually due to COVID-19 pandemic), Barcelona, Spain, May 2020.
+                </p>
+
+
+                <p align="justify">
+                    [4] <a class="label label-success" href="doc/presentations/complex_icassp2019.pdf" target="_blank">Poster</a> <i>Complex Spectral Mapping with a Convolutional Recurrent Network for Monaural Speech Enhancement</i>, IEEE ICASSP, Brighton, United Kingdom, May 2019.
+                </p>
+
+                <p align="justify">
+                    [3] <a class="label label-success" href="doc/presentations/dual_icassp2019.pdf" target="_blank">Slides</a> <i>Real-Time Speech Enhancement Using an Efficient Convolutional Recurrent Network for Dual-Microphone Mobile Phones in Close-Talk Scenarios</i>, IEEE ICASSP, Brighton, United Kingdom, May 2019.
+                </p>
+
+                <p align="justify">
+                    [2] <a class="label label-success" href="doc/presentations/phase_icassp2019.pdf" target="_blank">Slides</a> <i>Deep Learning Based Phase Reconstruction for Speaker Separation: A Trigonometric Perspective</i>, IEEE ICASSP, Brighton, United Kingdom, May 2019.
+                </p>
+
+                <p align="justify">
+                    [1] <a class="label label-success" href="doc/presentations/GRN_icassp2018.pdf" target="_blank">Slides</a> <i>Gated Residual Networks with Dilated Convolutions for Supervised Speech Separation</i>, IEEE ICASSP, Calgary, Alberta, Canada, Apr. 2018.
+                </p>
+            </div>
+
+            <div id="working_target" style="position: relative; top: -50px;"></div>
+	        <div id="working">
+            	<h2><a name="working">Working</a></h2>
+		        <p>Jan. 2017 - present, <i>Graduate Research Associate</i> in <a href="http://web.cse.ohio-state.edu/pnl/" target="_blank">Perception and Neurodynamics Laboratory (PNL)</a> at OSU, Columbus, OH, United States</p>
+                <p>May 2020 - Aug. 2020, <i>Research Intern</i> at <a href="https://research.fb.com/category/augmented-reality-virtual-reality/" target="_blank">Facebook Reality Labs</a> (formerly <a href="https://www.oculus.com/research/" target="_blank">Oculus Research</a>), Redmond, WA, United States</p>
+                <p>May 2019 - Aug. 2019, <i>Research Intern</i> at <a href="https://ai.tencent.com/ailab/en/index" target="_blank">Tencent AI Lab</a>, Bellevue, WA, United States</p>
+                <p>May. 2018 - Aug. 2018, <i>Research Intern</i> at <a href="http://kitt.ai/" target="_blank">KITT.AI group - Baidu DuerOS</a>, Bellevue, WA, United States</p>
+            </div>
+
+            <div id="acknowledgments_target" style="position: relative; top: -50px;"></div>
+            <div id="acknowledgments">
+            	<h2><a name="acknowledgments">Acknowledgments</a></h2>
+                <a href="http://en.ustc.edu.cn/" target="_blank">
+                	<img src="img/ustc.png" width="110" height="110"/>
+                </a>
+                <a href="https://www.osu.edu/" target="_blank">
+                	<img src="img/osu.png" width="110" height="110"/>
+                </a>
+                <a href="http://research.baidu.com/" target="_blank">
+                	<img src="img/baidu.png" width="110" height="110"/>
+                </a>
+                <a href="https://ai.tencent.com/ailab/en/index" target="_blank">
+                	<img src="img/tencent_ai_lab.png" height="110"/>
+                </a>
+                <a href="https://research.fb.com/" target="_blank">
+                	<img src="img/facebook.png" height="110"/>
+                </a>
+            </div>
+
         </div>
 
 
-        <div id="footer">
-            <i>&copy September 2020 by Ke Tan</i>
-		</div>
+        <div id="footer"><i>Designed by <span style="color:#FFF">Ke Tan</span> on <span style="color:#FFF">05/11/2015</span>. Last updated on <span style="color:#FFF">04/28/2021</span>.</i></div>
 
         <div class="wow fadeIn" data-wow-delay="0.4s">
 	        <div class="btn-circle-scroll">
@@ -647,21 +321,11 @@
 			</div>
 		</div>
 
-        <div style="margin:0 auto;text-align:center;margin-bottom:30px;">
-            <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=2Sh5jxgKi2jEME2CgF6Xv3fPqJc117g5t4vXUN8QrZQ'></script>
-        </div>
-
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     	<script src="js/jquery.easing.min.js"></script>
 	    <script src="js/jquery.scrollTo.js"></script>
         <script src="js/wow.min.js"></script>
-        <script src="js/buffer-loader.js"></script>
-        <script src="js/crossfade.js"></script>
-        <script src="js/crossfade_mono.js"></script>
-        <script src="js/init.js"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
         <script type="text/javascript">
             $(function(){
@@ -719,6 +383,16 @@
 		        });
 	        });
         </script>
+
+        <!-- Email -->
+        <script type="text/javascript">
+            var a = "tan.650";
+            var b = "osu.edu";
+            document.getElementById("osu-email").href = "mailto:" + a + "@" + b;
+        </script>
+
+        <!-- <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=qNIolzwkkPaDtv2ywjbBzS1SIC2QUqX_jQHm_wC97nk&cl=ffffff&w=a"></script> -->
+        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=N_fnzVPTxT9LnxhA1Kyo7UsLjhDJUcDGulQVkGx8xAM'></script>
 
     </body>
 </html>
